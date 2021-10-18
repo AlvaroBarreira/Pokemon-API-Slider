@@ -1,0 +1,435 @@
+@import url('https://fonts.googleapis.com/css2?family=Inconsolata:wght@300&display=swap');
+body {
+    background-image: no-repeat;
+    background-image: fixed;
+    background-image: center;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    padding:0;
+    margin: 0;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    background-color: gray;
+    overflow: hidden;
+}
+
+.slide-container {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+}
+
+.image-slider {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: .7s;
+}
+
+.inactive {
+    filter: saturate(0%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 150px 10px 0 10px;
+    height: 350px;
+    width: 300px;
+    transform: scale(1);
+    transition: 0.1s;
+}
+
+.active{ 
+    width: 300px;
+    height: 350px;
+    filter: saturate(90%);
+    z-index: 999999;
+    position: absolute;
+    margin: 150px 10px 0 10px;
+    transform: scale(1.1);
+    transition: 0.2s;
+}
+
+
+
+.circle {
+    position: absolute;
+	height: 219px;
+    top: -220px;
+    left: 9px;
+	width: 280px;
+    z-index: -20;
+    border: none;
+     backdrop-filter: blur(2px) saturate(200%);
+    -webkit-backdrop-filter: blur(2px) saturate(200%);
+    background-color: rgba(255, 255, 255, 0.16);
+    border-radius: 5px;
+}
+
+.circle-image {
+    width: 240px;
+    height: 240px;
+    top: -220px;
+    left: 20px;
+    position: absolute;
+    z-index: -30;   
+}
+
+
+
+
+
+.card {
+    margin-top: 180px;
+    background: rgb(242,242,242);
+    background: linear-gradient(0deg, rgba(242,242,242,1) 16%, rgba(206,246,249,1) 100%);
+    box-shadow: rgba(0, 0, 0, 0.56) 0px 22px 70px 4px;    
+    display: block;
+    transition: 0.5s;
+    border-radius: 3px;
+    cursor: pointer;
+    position: relative;
+    z-index: 999999;
+}
+
+.img-content {
+    margin: 10px auto;
+    position: absolute;
+    top: -100px;
+    left: 77px;
+    height:140px;
+    width:140px;
+}
+
+.img {
+    width: 140px;
+    height: 140px;  
+    
+}
+
+.name-content {
+    display: flex;
+    padding-top: 70px;
+    margin: 5px auto;
+    justify-content: center;
+}
+
+.name {
+    font-family: 'Inconsolata', monospace;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.green-line {
+    border-radius: 2px;
+    margin: 5px auto;
+    background: #69EEB9;
+    width: 180px;
+    height: 5px;
+}
+
+
+.attack {
+    margin-bottom: 0;
+    font-family: 'Inconsolata', monospace;
+}
+
+.special-attack {
+    margin-bottom: 0;
+    font-family: 'Inconsolata', monospace;
+}
+
+.defense {
+    margin-bottom: 0;
+    font-family: 'Inconsolata', monospace;
+}
+
+.attack-content {
+    text-align: center;
+    font-family: 'Inconsolata', monospace;
+    font-size: 16px;
+ 
+}
+
+.spAttack-content {
+    font-family: 'Inconsolata', monospace;
+    text-align: center;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 4px;
+    font-size: 16px;
+}
+
+.defense-content {
+    font-size: 16px;
+    font-family: 'Inconsolata', monospace;
+    text-align: center;
+}
+
+.content {
+    margin: 50px auto;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+  
+  
+}
+
+.line {
+    background: #9b9a9d;
+    width: 1px; 
+    height: 36px;
+    margin-top: 20px;
+}
+
+.line2 {
+   
+    background: #9b9a9d;
+    width: 1px; 
+    height: 36px;
+    margin-left: 12px;
+    margin-top: 20px;
+}
+
+.line3 {
+    background: #9b9a9d;
+    width: 280px; 
+    height: 1px;
+    margin: -40px auto;
+}
+
+
+
+
+/*BOTON SLIDE*/
+
+/* Formateamos el label que servirá de contenedor */
+.switch {
+    margin: 60px;
+    margin-left: 10px;
+    position: relative;
+    display: inline-block;
+    width: 280px;
+    height: 37px;
+  }
+
+
+/* Ocultamos el checkbox html */
+.switch input {
+    display:none;
+}
+
+/* Formateamos la caja del interruptor sobre la cual se deslizará la perilla de control o slider */
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #E5EFE2;
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+
+/* Pintamos la perilla de control o slider usando el selector before */
+.slider::before {
+    position: absolute;
+    content: "";
+    height: 37px;
+    width: 120px;
+    border-radius: 3rem;
+    background: rgb(177, 177, 175);
+    -webkit-transition: .4s;
+    transition: .4s;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+
+.slider::after {
+    font-family: 'Inconsolata', monospace;
+    content: "POWER UP";
+    position:absolute;
+    color: #F4FFF6;
+    top: 10px;
+    left: 30px;
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+
+/* Cambiamos el color de fondo cuando el checkbox esta activado */
+input:checked + .slider {
+    background-color:  rgb(226, 230, 229);
+}
+
+/* Deslizamos el slider a la derecha cuando el checkbox esta activado */ 
+input:checked + .slider:before {
+    -webkit-transform: translateX(160px);
+    -ms-transform: translateX(160px);
+    transform: translateX(160px);
+}
+
+input:checked + .slider::after {
+    -webkit-transform: translateX(160px);
+    -ms-transform: translateX(160px);
+    transform: translateX(160px);
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+
+
+
+/* Aplicamos efecto de bordes redondeados en slider y en el fondo del slider */
+.slider.round {
+    border-radius: 34px;
+}
+
+
+
+/*BOTON SLIDE 2*/  
+
+
+.switch2 {
+    top: -40px;
+    margin-left: 10px;
+    position: relative;
+    display: inline-block;
+    width: 280px;
+    height: 37px;
+}
+
+
+/* Ocultamos el checkbox html */
+.switch2 input {
+    display:none;
+}
+
+/* Formateamos la caja del interruptor sobre la cual se deslizará la perilla de control o slider */
+.slider2 {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #E5EFE2;
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+
+/* Pintamos la perilla de control o slider usando el selector before */
+.slider2::before {
+    position: absolute;
+    content: "";
+    height: 37px;
+    width: 120px;
+    border-radius: 3rem;
+    background: rgb(177, 177, 175);
+    -webkit-transition: .4s;
+    transition: .4s;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+
+.slider2::after {
+    font-family: 'Inconsolata', monospace;
+    content: "EVOLVE";
+    position:absolute;
+    color: #F4FFF6;
+    top: 10px;
+    left: 35px;
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+
+/* Cambiamos el color de fondo cuando el checkbox esta activado */
+input:checked + .slider2 {
+    background-color:  rgb(226, 230, 229);
+}
+
+/* Deslizamos el slider a la derecha cuando el checkbox esta activado */ 
+input:checked + .slider2:before {
+    -webkit-transform: translateX(160px);
+    -ms-transform: translateX(160px);
+    transform: translateX(160px);
+}
+
+input:checked + .slider2::after {
+    -webkit-transform: translateX(160px);
+    -ms-transform: translateX(160px);
+    transform: translateX(160px);
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+
+
+
+/* Aplicamos efecto de bordes redondeados en slider y en el fondo del slider */
+.slider2.round2 {
+    border-radius: 34px;
+}
+
+
+
+
+
+.btn-1 {
+    width: 50px;
+    height: 100vh;
+    backdrop-filter: blur(2px) saturate(97%);
+    -webkit-backdrop-filter: blur(2px) saturate(97%);
+    background-color: rgba(255, 255, 255, 0.18);
+
+    position: absolute;
+    z-index: 9999999;
+    left: 0;
+    cursor: pointer;
+}
+
+.btn-2 {
+    width: 50px;
+    height: 100vh;
+    backdrop-filter: blur(2px) saturate(97%);
+    -webkit-backdrop-filter: blur(2px) saturate(97%);
+    background-color: rgba(255, 255, 255, 0.18);
+  
+    position: absolute;
+    right: 0;
+    z-index: 9999999;
+    cursor: pointer;
+}
+
+
+.arrow-left {
+    width: 50px;
+    height: 50px;
+    top: 280px;
+    position:absolute;
+}
+
+.arrow-right {
+    width: 50px;
+    height: 50px;
+    top: 280px;
+    position:absolute;
+}
+
+.change {
+    transition: 2s;
+    background: rgb(179,230,228);
+background: radial-gradient(circle, rgba(179,230,228,1) 46%, rgba(0,254,218,0.4676724137931034) 100%);
+}
+
+.change2 {
+    top: -200px;
+    z-index: 1;
+}
+
+.displayNone {
+    display: none;
+}

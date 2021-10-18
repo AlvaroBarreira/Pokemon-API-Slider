@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>    
+    <link rel="stylesheet" href="styles.css">
+    
+    <title>pokeAPI</title>
+</head>
+<body background="img/body.png">
+
+    <!--Aca adentro se va a renderizar el template-->
+    <main class="flex slide-container" id="items">
+
+
+        <a class="btn-1" id="btn-1"><img src="img/flecha-izquierda.svg" alt="" class="arrow-left"></a>
+        <div class="image-slider" id="image-slider">
+            
+            
+        </div>
+        <a class="btn-2" id="btn-2"><img src="img/flecha-derecha.svg" alt="" class="arrow-right"></a> 
+
+        
+    </main>
+
+    
+    <!--Template que no se va a mostrar-->
+    <template id="card-template">        
+
+        <div class="inactive card" onmouseover="move(id)" onmouseout="leave(id)">
+
+            <img src="" alt="" class="circle-image">
+
+            <div class="circle"></div>
+    
+            <div class="img-content">
+
+                <img src="img/Metapod.png" alt="" class="img">
+            </div>
+    
+            <div class="name-content">
+
+                <p class="name">Metapod</p>
+     
+            </div>
+    
+            <div class="green-line"></div>
+    
+    
+            <div class="content">
+                
+                <div class="attack-content">
+                
+                    <p class="attack">20K</p>
+
+                    <label for="" class="name-attack">Attack</label>
+                     
+                </div>
+    
+                <div class="spAttack-content">
+    
+                    <div class="line"></div>
+    
+                    <div>
+                        <p  class="special-attack">25K</p>
+
+                        <label for="" class="name-spAttack">Especial Attack</label>
+
+                    </div>
+                    
+                    <div class="line2"></div>
+                </div>
+        
+                <div class="defense-content">
+
+                    <p class="defense">55K</p>
+
+                    <label for="" class="name-defense">Defense</label>
+
+                </div>      
+    
+            </div>
+            
+            <div class="line3"></div>
+    
+    
+            <label class="switch">
+
+                
+
+            </label>
+            
+        </div>
+  
+    </template>
+
+    
+    
+    <script src="main.js"></script>
+
+    
+</body>
+</html>
